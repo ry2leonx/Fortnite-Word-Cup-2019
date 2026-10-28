@@ -1,0 +1,257 @@
+/* ======================================================================
+   RESETEO GLOBAL: Aplica box-sizing para controlar el ancho de los elementos
+   ====================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1b4b;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilo de la cabecera con imagen de fondo y degradado natural tropical */
+header {
+    background:  
+                url('img/WordCup.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 3.5rem 1rem;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+/* Barra de navegación fija (sticky) en tonos verdes */
+nav {
+    background-color: #00d2ff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    color:  #1e1b4b;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #047857;
+}
+
+/* Estructura general de columnas con CSS Grid */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+    flex: 1;
+}
+
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-section {
+    background-color: #1e1b4b;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #065f46;
+    margin-bottom: 0.5rem;
+    border-bottom: 3px solid #10b981;
+    padding-bottom: 0.5rem;
+}
+
+.section-desc {
+    color: #065f46;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+/* Estilos de los contenedores fieldset y sus títulos legend en tonos verdes */
+fieldset {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 2px solid #065f46;
+    border-radius: 6px;
+    background-color:  #00d2ff;
+}
+
+legend {
+    font-weight: bold;
+    background-color: #00d2ff;
+    color: #065f46;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color:  #1e1b4b;
+}
+
+/* Estilos unificados para todos los controles del formulario con ancho controlado */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="color"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 12px;
+    margin-top: 4px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color:  #1e1b4b;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #065f46;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(6, 95, 70, 0.15);
+}
+
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin-right: 6px;
+}
+
+/* Estilos de botones de acción */
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-submit {
+    background-color: #00d2ff
+    color: white;
+}
+.btn-submit:hover {
+    background-color: #059669;
+}
+
+.btn-reset {
+    background-color: #ef4444;
+    color: white;
+}
+.btn-reset:hover {
+    background-color: #c82333;
+}
+
+.btn-action {
+    background-color: #3b82f6;
+    color: white;
+}
+.btn-action:hover {
+    background-color: #2563eb;
+}
+
+/* Barra lateral y pie de página */
+aside {
+    background-color: #00d2ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    height: fit-content;
+}
+
+aside h3 {
+    color: #065f46;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.5rem;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: #cccccc;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+footer address a {
+    color: #34d399;
+    text-decoration: none;
+}

@@ -1,0 +1,307 @@
+<!--
+  ======================================================================
+  INSTITUCIÓN: CBTis 166 Pablo Torres Burgos
+  ----------------------------------------------------------------------
+  * Estudiante: Gaona Castro Eduardo Baltazar
+  * Grupo: 3B PRO VESP  
+  * Actividad: Práctica Temática sobre Formularios en HTML5
+  * Fecha de entrega: 21 de octubre de 2026
+  ----------------------------------------------------------------------
+  * Descripción técnica:
+    - Estructura modular (HTML5, CSS3 y JavaScript) con diseño responsivo (CSS Grid/Flexbox).
+    - Uso completo de etiquetas semánticas y variantes de inputs para formularios 
+    (<form>, <fieldset>, <legend>, <input>, <select>, etc.).
+    - Interactividad con JavaScript (envío, validación, asistente y vista previa 
+    dinámica de imágenes mediante botones radio).
+  ====================================================================== -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel y Tour Paraíso Tropical - Reservas</title>
+    <!-- Vinculación de la hoja de estilos externa -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Etiqueta semántica <header>: Cabecera principal del sitio -->
+    <header>
+        <div class="header-content">
+            <h1>Fortnite Word Cup 2019</h1>
+            <p>Vive la emocion de la Word Cup en Nueva York</p>
+        </div>
+    </header>
+
+    <!-- Etiqueta semántica <nav>: Barra de navegación principal -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Etiqueta semántica <main>: Contenedor principal de contenido -->
+    <main id="inicio">
+        
+        <section class="form-section">
+            <h2 class="section-title">Formulario de Fortnite</h2>
+            <p class="section-desc">Complete el siguiente formulario comercial para entrar a las clasificaciones rumbo a la Fortnite Word Cup 2019.</p>
+      
+            <!-- 
+              ==================================================
+              ETIQUETA <form>: Contenedor raíz del formulario 
+              Atributos:
+              - action: Ruta o script del servidor que procesa los datos.
+              - method: Método HTTP (POST para envío seguro).
+              - enctype: Permite adjuntar archivos multimedia.
+              ================================================== 
+            -->
+            <form id="form-reserva" action="/procesar-reserva" method="POST" enctype="multipart/form-data">
+
+                <!-- 
+                  ETIQUETA <fieldset>: Agrupa visual y lógicamente un bloque de campos.
+                  ETIQUETA <legend>: Título descriptivo para el fieldset.
+                  ETIQUETA <label>: Etiqueta de texto accesible conectada mediante el atributo 'for'.
+                  ETIQUETA <input>: Control interactivo de entrada cuyo comportamiento cambia con el 'type'.
+                -->
+                <fieldset>
+                    <legend>1. Información de las clasificatorias</legend>
+                    <div class="input-group">
+                        <label for="nombre-huesped">Nombre Completo:</label>
+                        <!-- type="text": Campo de texto plano. 'required' obliga a llenarlo -->
+                        <input type="text" id="nombre-huesped" name="nombre_huesped" 
+                         placeholder="Ej. Carlos Mendoza Ruiz" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>2. Detalles del torneo</legend>
+
+                    <div class="input-group">
+                        <label for="in-email">Correo Electrónico:</label>
+                        <!-- type="email": Valida automáticamente formato de correo con '@' -->
+                        <input type="email" id="in-email" name="correo" placeholder="carlos@correo.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-password">Contraseña temporal para su cuenta:</label>
+                        <!-- type="password": Oculta los caracteres con asteriscos o puntos -->
+                        <input type="password" id="in-password" name="password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-tel">Teléfono móvil de contacto:</label>
+                        <!-- type="tel": Optimiza el teclado numérico en dispositivos móviles -->
+                        <input type="tel" id="in-tel" name="telefono" placeholder="777-000-0000">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-url">Sitio web personal o redes sociales (Opcional):</label>
+                        <!-- type="url": Valida que la entrada comience con un protocolo web válido -->
+                        <input type="url" id="in-url" name="redes" placeholder="https://instagram.com/usuario">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-search">Buscar tours o destinos adicionales:</label>
+                        <!-- type="search": Campo optimizado para búsquedas -->
+                        <input type="search" id="in-search" name="busqueda_tour" placeholder="Ej. Buceo, Excursión...">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-number">Número de acompañantes (Adultos):</label>
+                        <!-- type="number": Control numérico con límites min, max e incremento step -->
+                        <input type="number" id="in-number" name="adultos" min="1" max="10" value="1">
+                    </div>
+
+                    <div class="input-group checkbox-wrapper">
+                        <!-- type="checkbox": Casilla de verificación para selección múltiple -->
+                        <input type="checkbox" id="check1" name="transporte" value="si">
+                        <label for="check1">Incluir transporte redondo desde el aeropuerto</label>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Tipo de Habitación:</label><br>
+                        <!-- type="radio": Permite seleccionar una sola opción dentro del mismo grupo (name="habitacion") -->
+                        <input type="radio" id="r1" name="habitacion" value="sencilla"> <label for="r1">Sencilla</label> &nbsp;&nbsp;
+                        <input type="radio" id="r2" name="habitacion" value="suite" checked> <label for="r2">Suite de Lujo</label>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Tipo de Habitación:</label><br>
+                        <!-- type="radio": Permite seleccionar una sola opción dentro del mismo grupo (name="habitacion") -->
+                        <input type="radio" id="r1" name="habitacion" value="sencilla"> <label for="r1">Sencilla</label> &nbsp;&nbsp;
+                        <!--checked sirve para que un boton de radio o casilla de verificación
+                        debe aparecer marcado por defecto cuando la página cargue por primera vez.-->
+                        <input type="radio" id="r2" name="habitacion" value="suite" checked> <label for="r2">Suite de Lujo</label>
+                        
+                        <!-- Contenedor visual para mostrar la imagen correspondiente -->
+                        <div class="preview-habitacion" style="margin-top: 15px;">
+                            <img id="imagen-habitacion" src="img/formato.jpg" alt="Vista previa de habitación" style="width: 100%; max-width: 400px; height: 220px; object-fit: cover; border-radius: 8px; border: 1px solid #cbd5e1;">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-date">Fecha de llegada (Check-in):</label>
+                        <!-- type="date": Despliega un calendario interactivo nativo -->
+                        <input type="date" id="in-date" name="fecha_llegada">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-time">Hora estimada de llegada:</label>
+                        <!-- type="time": Selector interactivo de hora -->
+                        <input type="time" id="in-time" name="hora_llegada">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-datetime">Fecha y hora exacta de vuelo:</label>
+                        <!-- type="datetime-local": Selector combinado de fecha y hora local -->
+                        <input type="datetime-local" id="in-datetime" name="vuelo_llegada">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-month">Mes preferido para futuras visitas:</label>
+                        <!-- type="month": Selector exclusivo de mes y año -->
+                        <input type="month" id="in-month" name="mes_visita">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-week">Semana de temporada vacacional:</label>
+                        <!-- type="week": Selector de semana del año -->
+                        <input type="week" id="in-week" name="semana_vacaciones">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-color">Color distintivo para su equipaje (Etiqueta VIP):</label><br>
+                        <!-- type="color": Paleta de selección de colores en formato hexadecimal -->
+                        <input type="color" id="in-color" name="color_equipaje" value="#f59e0b" style="width: 100px; height: 40px; padding: 2px;">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-range">Nivel de firmeza de colchón deseado (1 al 10):</label>
+                        <!-- type="range": Barra deslizante (slider) numérica -->
+                        <input type="range" id="in-range" name="firmeza_colchon" min="1" max="10" value="7">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="in-file">Subir comprobante de identificación o pasaporte:</label>
+                        <!-- type="file": Permite la subida de archivos locales -->
+                        <input type="file" id="in-file" name="identificacion">
+                    </div>
+
+                    <!-- type="hidden": Campo oculto para enviar datos técnicos al servidor sin que el usuario los modifique -->
+                    <input type="hidden" name="reserva_id" value="RES-2026-TROP-88">
+
+                    <div class="input-group">
+                        <label>Sello de garantía visual:</label><br>
+                        <!-- type="image": Botón de envío representado por una imagen gráfica -->
+                        <input type="image" src="https://picsum.photos/120/35" alt="Sello verificado" style="width: 120px; height: 35px;">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>3. Comentarios y Peticiones Especiales</legend>
+                    <div class="input-group">
+                        <label for="mi-textarea">Indique alergias, restricciones alimenticias o peticiones:</label>
+                        <!-- ETIQUETA <textarea>: Caja de edición de texto multilínea -->
+                        <textarea id="mi-textarea" name="observaciones" rows="4" placeholder="Escribe aquí cualquier solicitud adicional..."></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>4. Paquetes y Actividades Opcionales</legend>
+
+                    <div class="input-group">
+                        <label for="mi-select">Seleccione su paquete de bienvenida:</label>
+                        <!-- ETIQUETA <select>: Menú desplegable de opciones -->
+                        <selectoptgroup label="Paquetes Románticos">
+    <option value="luna_miel">Luna de Miel (Cena en la playa)</option>
+    <option value="aniversario">Aniversario (Spa incluido)</option>
+</optgroup>
+<optgroup label="Paquetes Familiares">
+    <option value="familiar" selected>Todo Incluido Estándar</option>
+    <option value="aventura">Aventura Extrema (Tours diarios)</option>
+</optgroup>
+                            !-- ETIQUETA optgroup>: Agrupa opciones relacionadas dentro del select -->
+                            <optgroup label="Paquetes Románticos">
+                                <!-- ETIQUETA <option>: Opción individual del menú -->
+                                <option value="luna_miel">Luna de Miel (Cena en la playa)</option>
+                                <option value="aniversario">Aniversario (Spa incluido)</option>
+                            </optgroup>
+                            <optgroup label="Paquetes Familiares">
+                                <option value="familiar" selected>Todo Incluido Estándar</option>
+                                <option value="aventura">Aventura Extrema (Tours diarios)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="input-datalist">Excursión guiada preferida (Sugerencias):</label>
+                        <!-- ETIQUETA <input> asociada a un <datalist> mediante el atributo 'list' -->
+                        <input type="text" id="input-datalist" name="excursion" list="lista-tours" placeholder="Empieza a escribir...">
+                        <!-- ETIQUETA <datalist>: Proporciona opciones de autocompletado predictivo -->
+                        <datalist id="lista-tours">
+                            <option value="Tour de Esnórquel en Arrecife">
+                            <option value="Visita a Zona Arqueológica">
+                            <option value="Paseo en Catamarán al Atardecer">
+                            <option value="Senderismo en la Selva Tropical">
+                        </datalist>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>5. Estado de Ocupación y Capacidad</legend>
+
+                    <div class="input-group">
+                        <label>Capacidad del complejo hotelero actual:</label>
+                        <!-- ETIQUETA <progress>: Muestra la barra de progreso de una tarea o capacidad -->
+                        <progress value="85" max="100" style="width: 100%; height: 20px;">85%</progress>
+                    </div><br>
+
+                    <div class="input-group">
+                        <label>Índice de satisfacción de los visitantes:</label>
+                        <!-- ETIQUETA <meter>: Mide un valor escalar dentro de un rango conocido -->
+                        <meter value="0.9" min="0" low="0.4" high="0.7" optimum="0.95" style="width: 100%; height: 20px;">90%</meter>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>6. Confirmación de Operación</legend>
+
+                    <div class="input-group">
+                        <p style="margin-bottom: 8px;"><strong>Acciones del Sistema:</strong></p>
+                        <!-- ETIQUETA <button>: Botones de acción semánticos avanzados con type submit, reset y button -->
+                        <button type="submit" id="btn-enviar" class="btn btn-submit">Confirmar Reserva</button>
+                        <button type="reset" id="btn-limpiar" class="btn btn-reset">Borrar Datos</button>
+                        <button type="button" id="btn-asistente" class="btn btn-action">Consultar Asistente</button>
+                    </div>
+                </fieldset>
+
+            </form>
+        </section>
+
+        <!-- Etiqueta semántica <aside>: Barra lateral de información secundaria -->
+        <aside>
+            <h3>Centro de Ayuda</h3>
+            <p><strong>Fortnite:</strong></p>
+            <p>Atención al cliente</p>
+            <p><strong>Teléfono:</strong></p>
+            <p>+52 (734) 555-0199</p>
+            <br>
+            <p>Consulte nuestras políticas de cancelación y tarifas vigentes para la temporada actual.</p>
+        </aside>
+    </main>
+
+    <!-- Etiqueta semántica <footer>: Pie de página con información de contacto y <address> -->
+    <footer id="contacto">
+        <p>&copy; 2026 Hotel y Spa Paraíso Tropical. Todos los derechos reservados.</p>
+        <address>
+            ¿Necesita asistencia especial? Contáctenos en <a href="mailto:reservas@paraisotropical.com">reservas@paraisotropical.com</a>
+        </address>
+    </footer>
+
+    <!-- Vinculación del script de interactividad -->
+    <script src="script.js"></script>
+</body>
+</html>
